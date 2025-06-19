@@ -16,6 +16,8 @@ This project demonstrates multiple ways to integrate **Google reCAPTCHA v2** in 
 flutter pub get
 ```
 
+⚠️ flutter_easy_recaptcha_v2 requires Dart SDK ≥3.6.1, which is only available in Flutter ≥3.27.2.
+
 ### 2. Choose Your Integration Approach
 
 Open lib/main.dart and update the home: widget to switch between demo methods:
@@ -35,8 +37,6 @@ home: const CustomRecaptchaForm();
 ```
 
 ⚠️ Only uncomment one demo at a time.
-
-⚠️ flutter_easy_recaptcha_v2 requires Dart SDK ≥3.6.1, which is only available in Flutter ≥3.27.2.
 
 ### 3. Run the App
 
