@@ -1,0 +1,30 @@
+name: poc_recaptcha_v2
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  flutter_easy_recaptcha_v2: ^0.1.0
+  flutter_recaptcha_v2_compat: ^1.0.5
+  recaptcha_enterprise_flutter: ^18.7.1
+  http: ^1.4.0
+  webview_flutter: ^4.5.0
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/web/

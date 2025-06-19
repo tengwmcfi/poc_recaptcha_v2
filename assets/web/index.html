@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        background-color: #f7f7f7;
+      }
+
+      .g-recaptcha {
+        transform: scale(1.05);
+        transform-origin: center;
+      }
+    </style>
+    <script type="text/javascript">
+      // Retrieve query parameter by key (fallback with alternate key)
+      function getSiteKey() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('sitekey') || urlParams.get('api_key');
+      }
+
+      function onRecaptchaSuccess(token) {
+        if (window.RecaptchaHandler) {
+          RecaptchaHandler.postMessage(token);
+        } else {
+          console.log("RecaptchaHandler channel not available.");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const sitekey = getSiteKey();
+
+        if (!sitekey) {
+          document.body.innerHTML = "<p style='color:red;'>Missing sitekey or api_key in query string.</p>";
+          return;
+        }
+
+        const recaptchaDiv = document.createElement("div");
+        recaptchaDiv.className = "g-recaptcha";
+        recaptchaDiv.setAttribute("data-sitekey", sitekey);
+        recaptchaDiv.setAttribute("data-callback", "onRecaptchaSuccess");
+
+        document.body.appendChild(recaptchaDiv);
+
+        if (typeof grecaptcha !== "undefined") {
+          grecaptcha.render(recaptchaDiv);
+        }
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
